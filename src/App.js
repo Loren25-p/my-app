@@ -8,20 +8,20 @@ function App() {
   console.log(cash);
 
   const addCash = () => {
-    const amount = prompt("Введите сумму для пополнения:"); // Используем prompt для ввода суммы
+    const amount = prompt("Введите сумму для пополнения:"); 
     if (amount && Number(amount) > 0) {
       dispatch({ type: "ADD_CASH", payload: Number(amount) });
     } else {
-      alert("Пожалуйста, введите корректную сумму!"); // Сообщение об ошибке
+      alert("Пожалуйста, введите корректную сумму!"); 
     }
   };
 
   const getCash = () => {
-    const amount = prompt("Введите сумму для снятия:"); // Используем prompt для ввода суммы
+    const amount = prompt("Введите сумму для снятия:"); 
     if (amount && Number(amount) > 0) {
       dispatch({ type: "WITHDRAW_CASH", payload: Number(amount) });
     } else {
-      alert("Пожалуйста, введите корректную сумму!"); // Сообщение об ошибке
+      alert("Пожалуйста, введите корректную сумму!"); 
     }
   };
 
