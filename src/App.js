@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
+  const cash = useSelector((state) => state.cash);
+  const dispatch = useDispatch();
+
+  console.log(cash);
+
+  const addCash = () => {
+    const amount = prompt("Введите сумму для пополнения:"); // Используем prompt для ввода суммы
+    if (amount && Number(amount) > 0) {
+      dispatch({ type: "ADD_CASH", payload: Number(amount) });
+    } else {
+      alert("Пожалуйста, введите корректную сумму!"); // Сообщение об ошибке
+    }
+  };
+
+  const getCash = () => {
+    const amount = prompt("Введите сумму для снятия:"); // Используем prompt для ввода суммы
+    if (amount && Number(amount) > 0) {
+      dispatch({ type: "WITHDRAW_CASH", payload: Number(amount) });
+    } else {
+      alert("Пожалуйста, введите корректную сумму!"); // Сообщение об ошибке
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1>Баланс: {cash} ₿</h1>
+        <div className="buttons">
+          <button onClick={addCash}>Положить BTC</button>
+          <button onClick={getCash}>Снять BTC</button>
+        </div>
+      </div>
     </div>
   );
 }

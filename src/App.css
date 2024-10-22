@@ -2,6 +2,48 @@
   text-align: center;
 }
 
+body { 
+  background-image: url(../public/BTC.webp);
+  background-size: 50px;
+}
+
+button {
+  background-color: lightgreen;
+  border-radius: 7px;
+  border-color: green;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: lightblue;
+}
+
+button:active {
+  animation: shake 0.2s ease-in-out;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -28,11 +70,36 @@
   color: #61dafb;
 }
 
+.container {
+  margin-top: 240px;
+  width: 300px;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #0062ff;
+  border-radius: 10px;
+  filter: drop-shadow(5px 5px 40px blue);
+  margin-left: 606px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeIn 1s forwards ease-out;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
